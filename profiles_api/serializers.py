@@ -37,3 +37,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
         )
         return user
+
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    """Serializes profile feed items"""
+
+    class Meta:
+        model = models.ProfileFeedItem
+        fields = ('id', 'user_profile', 'status_text', 'created_on')
+        # The user profile is a foreign key for the feed so we don't
+        # want the value to be editable
+        extra_kwargs = {'user_profile': {'read_only': True}}

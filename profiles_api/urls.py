@@ -10,7 +10,7 @@ router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 # because we have a queryset object in our seraliser. If you specify it
 # then Django knows the name attached to it
 router.register('profile', views.UserProfileViewSet)
-
+router.register('feed', views.UserProfileFeedViewSet)
 
 urlpatterns = [
     path('hello-view/', views.HelloApiView.as_view()),
